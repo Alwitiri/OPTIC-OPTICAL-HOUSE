@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "opticare",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5623"],
+      "port": 5623,
+      "autoPort": false
+    }
+  ]
+}

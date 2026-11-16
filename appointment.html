@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an Eye Test in Ooty – Online Appointment | Opticare Optical House</title>
+<meta name="description" content="Book an eye test, contact lens consultation, kids' eye test or frame styling session at Opticare Optical House, Commercial Road, Ooty. Choose a date and time online and confirm on WhatsApp.">
+<meta property="og:title" content="Book an Appointment – Opticare Optical House, Ooty">
+<meta property="og:image" content="assets/img/og-image.svg">
+<meta name="theme-color" content="#FAF7F1">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/luxe.css">
+<link rel="stylesheet" href="assets/css/booking.css">
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Optician", "name": "OPTICARE OPTICAL HOUSE",
+  "address": { "@type": "PostalAddress", "streetAddress": "Prime Rose Building, Commercial Rd, Upper Bazar", "addressLocality": "Ooty", "addressRegion": "Tamil Nadu", "postalCode": "643001", "addressCountry": "IN" },
+  "potentialAction": { "@type": "ReserveAction", "target": "appointment.html", "name": "Book an eye test" } }
+</script>
+</head>
+<body data-page="appointment">
+<div id="chrome-top"></div>
+<main id="main">
+  <section class="bk-hero">
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span><a href="eye-testing.html">Eye Testing</a><span>/</span>Book</div>
+      <div class="bk-hero-grid">
+        <div>
+          <span class="eyebrow">Online appointment</span>
+          <h1 class="mega-title">Book your <em>visit.</em></h1>
+          <p class="lead">Choose a service and a time that suits you. We'll confirm on WhatsApp — and have everything ready when you arrive at our Commercial Road showroom.</p>
+        </div>
+        <ul class="bk-perks">
+          <li><span data-icon="clock"></span><div><b>Takes 1 minute</b><small>No account needed</small></div></li>
+          <li><span data-icon="whatsapp"></span><div><b>Confirmed on WhatsApp</b><small>Reschedule anytime</small></div></li>
+          <li><span data-icon="shield"></span><div><b>Private & secure</b><small>Only used for your visit</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm bk-wrap">
+    <div class="container bk-layout">
+      <div class="bk-main">
+        <ol class="bk-steps" id="bkSteps" aria-label="Booking steps">
+          <li data-s="1"><i>1</i><span>Service</span></li>
+          <li data-s="2"><i>2</i><span>Date & time</span></li>
+          <li data-s="3"><i>3</i><span>Your details</span></li>
+          <li data-s="4"><i>4</i><span>Confirm</span></li>
+        </ol>
+        <div class="bk-progress"><i id="bkBar"></i></div>
+
+        <!-- STEP 1 -->
+        <div class="bk-step" data-step="1">
+          <h2 class="bk-title">What can we help you with?</h2>
+          <p class="muted">Select one service. You can add notes for anything else.</p>
+          <div class="svc-grid" id="svcGrid"></div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="bk-step hidden" data-step="2">
+          <div class="bk-title-row"><h2 class="bk-title">Pick a date & time</h2><span class="muted" id="monthLabel"></span></div>
+          <div class="day-strip-wrap">
+            <button class="day-nav prev" id="dayPrev" aria-label="Earlier dates"><span data-icon="arrow"></span></button>
+            <div class="day-strip" id="dayStrip" role="listbox" aria-label="Choose a date"></div>
+            <button class="day-nav" id="dayNext" aria-label="Later dates"><span data-icon="arrow"></span></button>
+          </div>
+          <div id="slotGroups"></div>
+          <p class="muted" style="font-size:13px;margin-top:18px">Times shown are in IST. Struck-through times are already requested.</p>
+        </div>
+
+        <!-- STEP 3 -->
+        <form class="bk-step hidden" data-step="3" id="bkForm" novalidate>
+          <h2 class="bk-title">Your details</h2>
+          <p class="muted">We'll only use these to confirm your appointment.</p>
+          <div class="form-grid" style="margin-top:22px">
+            <label class="field"><span>Full name *</span><input name="name" autocomplete="name" required></label>
+            <label class="field"><span>Mobile number *</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile" required></label>
+            <label class="field"><span>Email (optional)</span><input name="email" type="email" autocomplete="email"></label>
+            <label class="field"><span>Age group</span><select name="age"><option>18 – 40</option><option>41 – 60</option><option>60+</option><option>Child (under 12)</option><option>Teen (12 – 17)</option></select></label>
+            <div class="field full"><span>Appointment is for</span><div class="seg" data-name="forWhom"><button type="button" class="on">Myself</button><button type="button">Someone else</button><button type="button">Family (2+)</button></div></div>
+            <div class="field full"><span>Do you currently wear</span><div class="seg" data-name="wears"><button type="button" class="on">Spectacles</button><button type="button">Contact lenses</button><button type="button">Both</button><button type="button">Neither</button></div></div>
+            <div class="field full"><span>Best way to confirm</span><div class="seg" data-name="contactVia"><button type="button" class="on">WhatsApp</button><button type="button">Phone call</button></div></div>
+            <label class="field full"><span>Notes (optional)</span><textarea name="notes" placeholder="Headaches, screen use, a frame you liked online, or anything we should know"></textarea></label>
+            <label class="check full"><input type="checkbox" name="consent" required> I agree to be contacted by Opticare Optical House about this appointment.</label>
+          </div>
+          <div class="form-msg err hidden" id="bkErr"></div>
+        </form>
+
+        <!-- STEP 4 -->
+        <div class="bk-step hidden" data-step="4">
+          <h2 class="bk-title">Review & confirm</h2>
+          <p class="muted">Please check everything looks right.</p>
+          <div class="review-box" id="reviewBox"></div>
+        </div>
+
+        <!-- DONE -->
+        <div class="bk-step hidden" data-step="5" id="bkDone"></div>
+
+        <div class="bk-nav" id="bkNav">
+          <button class="btn btn-outline" id="bkBack" type="button"><span data-icon="arrow" class="flip"></span> Back</button>
+          <button class="btn btn-dark" id="bkNext" type="button">Continue <span data-icon="arrow"></span></button>
+        </div>
+      </div>
+
+      <aside class="bk-side">
+        <div class="bk-card">
+          <div class="bk-card-media"><img id="sideImg" alt="Opticare eyewear showroom" loading="lazy"><span class="open-pill" id="sidePill"></span></div>
+          <div class="bk-card-body">
+            <small class="p-cat">Your appointment</small>
+            <h3>Opticare Optical House</h3>
+            <ul class="sum-list" id="sumList"></ul>
+            <hr class="divider" style="margin:18px 0">
+            <p style="font-size:14px;margin:0 0 6px"><b>Prime Rose Building, Commercial Rd</b><br><span class="muted">Upper Bazar, Ooty 643001</span></p>
+            <div class="btn-row" style="margin-top:14px"><a class="btn btn-outline btn-sm" data-dir><span data-icon="pin"></span> Directions</a><a class="btn btn-outline btn-sm" data-tel><span data-icon="phone"></span> Call</a></div>
+          </div>
+        </div>
+        <div class="bk-help"><span data-icon="chat"></span><div><b>Prefer to talk?</b><a data-wa="Hello Opticare, I'd like to book an appointment.">Message us on WhatsApp →</a></div></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section bg-beige">
+    <div class="container split" style="align-items:start">
+      <div>
+        <span class="eyebrow">Before your visit</span>
+        <h2 class="mega-title" style="font-size:clamp(38px,4.6vw,64px)">What to <em>bring.</em></h2>
+        <ul class="check-list">
+          <li><span class="n">01</span><div><b>Your current glasses</b><small>Including reading or computer glasses</small></div><span data-icon="frame"></span></li>
+          <li><span class="n">02</span><div><b>Any previous prescription</b><small>Paper copy or a photo is fine</small></div><span data-icon="eye"></span></li>
+          <li><span class="n">03</span><div><b>Contact lens box or details</b><small>If you wear contact lenses</small></div><span data-icon="drop"></span></li>
+        </ul>
+      </div>
+      <div id="bkFaq" style="padding-top:20px"></div>
+    </div>
+  </section>
+</main>
+<div id="chrome-bottom"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/frames.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages.js"></script>
+<script src="assets/js/booking.js"></script>
+</body>
+</html>

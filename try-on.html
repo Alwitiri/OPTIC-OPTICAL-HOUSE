@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtual Eyewear Try-On – Try Frames With Your Camera | Opticare Optical House, Ooty</title>
+<meta name="description" content="Try on spectacles and sunglasses virtually with your camera or a photo. Face tracking runs privately in your browser. Switch frames, compare looks, capture a photo and enquire on WhatsApp — Opticare Optical House, Ooty.">
+<meta property="og:title" content="Virtual Try-On Studio – Opticare Optical House">
+<meta property="og:image" content="assets/img/og-image.svg">
+<meta name="theme-color" content="#FAF7F1">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://storage.googleapis.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/luxe.css">
+</head>
+<body data-page="try-on">
+<div id="chrome-top"></div>
+<main id="main">
+  <section class="page-hero" data-hero="tryModel" style="padding-bottom:40px">
+    <span class="ghost-word">Try On</span>
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span>Virtual Try-On</div>
+      <span class="eyebrow">Virtual Try-On Studio</span>
+      <h1>See it on you — before you visit.</h1>
+      <p class="lead">Turn on your camera and the studio finds your eyes and places the selected spectacles on your face. Switch frames, adjust the fit, compare two looks, capture a photo and enquire on WhatsApp.</p>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:10px">
+    <div class="container studio">
+      <div>
+        <div class="stage" id="stage">
+          <video id="video" playsinline muted></video>
+          <canvas id="canvas" aria-label="Virtual try-on preview"></canvas>
+          <div class="stage-status" id="status"><i></i><span>Ready</span></div>
+          <div class="stage-preview-label">Preview</div>
+          <div class="flash" id="flash"></div>
+          <div class="stage-toolbar hidden" id="toolbar">
+            <button id="tbUpload" title="Upload a photo" aria-label="Upload a photo"><span data-icon="upload"></span></button>
+            <button id="tbCompare" title="Compare two frames" aria-label="Compare two frames"><span data-icon="compare"></span></button>
+            <button id="tbCapture" class="primary" title="Capture photo" aria-label="Capture photo"><span data-icon="camera"></span></button>
+            <button id="tbPrev" title="Previous frame" aria-label="Previous frame"><span data-icon="flip"></span></button>
+            <button id="tbStop" title="Stop camera" aria-label="Stop camera"><span data-icon="close"></span></button>
+          </div>
+          <div class="stage-overlay" id="intro">
+            <div>
+              <h3>Try frames on with your camera</h3>
+              <p>We'll ask your browser for camera permission. Your video is processed <b>only on this device</b> to detect face and eye positions — nothing is recorded or uploaded.</p>
+              <div class="btn-row" style="justify-content:center">
+                <button class="btn btn-light" id="startCam"><span data-icon="camera"></span> Try On With Camera</button>
+                <button class="btn btn-ghost-light" id="startUpload"><span data-icon="upload"></span> Upload a Photo</button>
+              </div>
+              <div class="intro-or"><span>or try frames on a model</span></div>
+              <div class="model-row" id="models"></div>
+              <div class="privacy"><span data-icon="shield"></span>Private by design · Works best in good, even light, facing the camera</div>
+            </div>
+          </div>
+          <div class="stage-overlay hidden" id="camErr" role="alert"></div>
+          <input type="file" id="fileIn" accept="image/*" hidden>
+        </div>
+        <p class="muted" style="font-size:12.5px;margin-top:10px">Virtual try-on is a <b>preview only</b>. Frames are shown as illustrations scaled to your face; actual size, fit and colour can vary. Please visit the showroom for a proper fitting.</p>
+
+        <div id="compareWrap" class="hidden" style="margin-top:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><h3 style="margin:0">Side-by-side comparison</h3><button class="btn btn-outline btn-sm" id="closeCompare">Close</button></div>
+          <div class="compare-view" id="compareView"></div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel"><h5>Try on a model <span class="muted" style="letter-spacing:0;text-transform:none;font-weight:500">no camera needed</span></h5><div class="model-row side" id="modelsSide"></div></div>
+        <div class="panel">
+          <div class="sel-info"><div><small id="selCat">Selected frame</small><b id="selName">—</b><small id="selMeta"></small></div><a class="btn btn-wa btn-sm" id="selWa" target="_blank" rel="noopener"><span data-icon="whatsapp"></span> Enquire</a></div>
+        </div>
+        <div class="panel">
+          <h5>Choose a frame <span class="muted" id="cmpHint" style="letter-spacing:0;text-transform:none;font-weight:500"></span></h5>
+          <div class="cat-tabs" id="catTabs"></div>
+          <div class="frame-picker" id="picker"></div>
+        </div>
+        <div class="panel">
+          <h5>Adjust fit <button class="chip" id="resetFit" style="padding:4px 10px;font-size:11px">Reset</button></h5>
+          <div class="ctrl"><label for="cSize">Frame size <span id="vSize">100%</span></label><input type="range" id="cSize" min="75" max="130" value="100"></div>
+          <div class="ctrl"><label for="cY">Height <span id="vY">0</span></label><input type="range" id="cY" min="-40" max="40" value="0"></div>
+          <div class="ctrl"><label for="cX">Side-to-side <span id="vX">0</span></label><input type="range" id="cX" min="-40" max="40" value="0"></div>
+          <p class="muted" style="font-size:12px;margin:0">Tip: if your face isn't detected, drag the frame into place on the preview.</p>
+        </div>
+        <div class="panel">
+          <h5>Your looks</h5>
+          <div class="gallery-shots" id="shots"><p class="muted" style="grid-column:1/-1;font-size:13px;margin:0">Captured photos appear here. They stay on your device.</p></div>
+          <div class="btn-row" style="margin-top:12px"><button class="btn btn-dark btn-sm" id="dlLast" disabled><span data-icon="download"></span> Save</button><button class="btn btn-wa btn-sm" id="shareLast" disabled><span data-icon="whatsapp"></span> Share look</button></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section bg-beige">
+    <div class="container">
+      <div class="sec-head"><div><span class="eyebrow">How it works</span><h2>Four steps to your new look</h2></div></div>
+      <div class="steps">
+        <div class="step"><h4>Allow camera</h4><p>Your browser asks permission. Prefer not to? Upload a front-facing photo instead.</p></div>
+        <div class="step"><h4>Face detected</h4><p>Face landmark detection finds your eyes, nose bridge and head angle — on your device.</p></div>
+        <div class="step"><h4>Switch & compare</h4><p>Change frames instantly, fine-tune the fit and compare two looks side by side.</p></div>
+        <div class="step"><h4>Capture & enquire</h4><p>Save a photo, share it on WhatsApp and ask us about availability.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="chrome-bottom"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/frames.js"></script>
+<script src="assets/js/layout.js"></script>
+<script type="module" src="assets/js/tryon.js"></script>
+</body>
+</html>

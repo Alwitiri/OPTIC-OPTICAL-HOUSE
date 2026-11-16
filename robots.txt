@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+# Replace the domain below once the site has its own domain
+Sitemap: https://opticare-optical-house.onrender.com/sitemap.xml

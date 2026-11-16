@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spectacle Repair, Prescription & Delivery Enquiries in Ooty | Opticare</title>
+<meta name="description" content="Spectacle repair in Ooty — loose screws, nose pads and adjustments. Send a repair request, prescription enquiry, delivery enquiry or virtual frame consultation to Opticare Optical House.">
+<meta property="og:title" content="Repairs & Enquiries – Opticare Optical House, Ooty">
+<meta property="og:image" content="assets/img/og-image.svg">
+<meta name="theme-color" content="#FAF7F1">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/luxe.css">
+</head>
+<body data-page="services">
+<div id="chrome-top"></div>
+<main id="main">
+  <section class="page-hero" data-hero="store">
+    <span class="ghost-word">Support</span>
+    <div class="container">
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span>Repairs & Enquiries</div>
+      <span class="eyebrow">Repairs & Enquiries</span>
+      <h1>Urgent eyewear problem? We're here.</h1>
+      <p class="lead">Broken frame, loose screw, a prescription to fill or glasses to deliver — tell us what you need and we'll get back to you quickly.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="grid g4 keep2" style="margin-bottom:50px">
+        <a class="feature svc-jump" href="#repair"><div class="f-icon" data-icon="tool"></div><h4>Repair request</h4><p>Screws, pads, hinges & adjustments.</p></a>
+        <a class="feature svc-jump" href="#prescription"><div class="f-icon" data-icon="eye"></div><h4>Prescription enquiry</h4><p>Send your Rx for lenses & frames.</p></a>
+        <a class="feature svc-jump" href="#delivery"><div class="f-icon" data-icon="box"></div><h4>Delivery enquiry</h4><p>Local delivery & courier options.</p></a>
+        <a class="feature svc-jump" href="#consult"><div class="f-icon" data-icon="frame"></div><h4>Frame consultation</h4><p>Send a photo, get frame advice.</p></a>
+      </div>
+
+      <div class="form-card" style="max-width:900px;margin:0 auto">
+        <div class="form-tabs" role="tablist">
+          <button data-tab="repair">Repair</button><button data-tab="prescription">Prescription</button><button data-tab="delivery">Delivery</button><button data-tab="consult">Frame Consultation</button>
+        </div>
+
+        <form data-pane="repair" data-type="Repair" id="repair" novalidate>
+          <h3>Repair request</h3><p class="muted">Most minor repairs — loose screws, nose pads, temple adjustments — can be handled quickly, often while you wait.</p>
+          <div class="form-grid">
+            <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Mobile</span><input name="phone" type="tel" required placeholder="10-digit mobile"></label>
+            <label class="field full"><span>Problem</span><select name="problem"><option>Loose screw / hinge</option><option>Broken or missing nose pad</option><option>Frame needs adjustment</option><option>Broken frame</option><option>Scratched / damaged lens</option><option>Other</option></select></label>
+            <label class="field full"><span>Details</span><textarea name="details" placeholder="Describe what happened and how urgent it is"></textarea></label>
+            <div class="full upload-zone" tabindex="0"><input type="file" name="file" accept="image/*" hidden><span data-icon="upload" style="display:inline-block;width:22px;color:var(--gold-deep)"></span><br>Add a photo of the damage (optional)<div class="up-preview"></div></div>
+            <div class="full"><button class="btn btn-dark btn-block">Send Repair Request</button></div>
+          </div>
+        </form>
+
+        <form data-pane="prescription" data-type="Prescription" id="prescription" class="hidden" novalidate>
+          <h3>Prescription enquiry</h3><p class="muted">Share your prescription and we'll suggest lens options and pricing. Your image stays on your device until you choose to send it on WhatsApp.</p>
+          <div class="form-grid">
+            <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Mobile</span><input name="phone" type="tel" required placeholder="10-digit mobile"></label>
+            <label class="field"><span>Need</span><select name="need"><option>New spectacles</option><option>Replace lenses in my frame</option><option>Contact lenses</option><option>Prescription sunglasses</option></select></label>
+            <label class="field"><span>Frame (optional)</span><input name="frame" placeholder="Frame name or code"></label>
+            <label class="field full"><span>Prescription details (optional)</span><textarea name="details" placeholder="SPH / CYL / AXIS / ADD for each eye, or attach a photo below"></textarea></label>
+            <div class="full upload-zone" tabindex="0"><input type="file" name="file" accept="image/*" hidden><span data-icon="upload" style="display:inline-block;width:22px;color:var(--gold-deep)"></span><br>Attach a photo of your prescription<div class="up-preview"></div></div>
+            <label class="check full"><input type="checkbox" required> I understand this is an enquiry; final lens recommendations are made after review by the store.</label>
+            <div class="full"><button class="btn btn-dark btn-block">Send Prescription Enquiry</button></div>
+          </div>
+        </form>
+
+        <form data-pane="delivery" data-type="Delivery" id="delivery" class="hidden" novalidate>
+          <h3>Delivery enquiry</h3><p class="muted">Ask about local delivery within Ooty or courier options for your order.</p>
+          <div class="form-grid">
+            <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Mobile</span><input name="phone" type="tel" required placeholder="10-digit mobile"></label>
+            <label class="field"><span>Delivery type</span><select name="deliveryType"><option>Local delivery (Ooty)</option><option>Courier – Tamil Nadu</option><option>Courier – other state</option></select></label>
+            <label class="field"><span>PIN code</span><input name="pincode" inputmode="numeric" maxlength="6"></label>
+            <label class="field full"><span>Order / frame details</span><textarea name="details" placeholder="What would you like delivered?"></textarea></label>
+            <div class="full"><button class="btn btn-dark btn-block">Send Delivery Enquiry</button></div>
+          </div>
+        </form>
+
+        <form data-pane="consult" data-type="Frame consultation" id="consult" class="hidden" novalidate>
+          <h3>Virtual frame consultation</h3><p class="muted">Upload a front-facing photo and tell us your style — we'll suggest frames that suit your face shape. Prefer to see it instantly? Use the <a class="gold" href="try-on.html?mode=upload">Virtual Try-On</a> (labelled as a preview).</p>
+          <div class="form-grid">
+            <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Mobile</span><input name="phone" type="tel" required placeholder="10-digit mobile"></label>
+            <label class="field"><span>Style preference</span><select name="style"><option>Classic</option><option>Minimal</option><option>Bold</option><option>Vintage</option><option>Sporty</option><option>Not sure</option></select></label>
+            <label class="field"><span>Budget</span><select name="budget"><option>Under ₹2,000</option><option>₹2,000 – ₹3,500</option><option>₹3,500 – ₹5,000</option><option>Premium (₹5,000+)</option></select></label>
+            <label class="field full"><span>Notes</span><textarea name="details" placeholder="Frames you like, colours, occasion…"></textarea></label>
+            <div class="full upload-zone" tabindex="0"><input type="file" name="file" accept="image/*" hidden><span data-icon="camera" style="display:inline-block;width:22px;color:var(--gold-deep)"></span><br>Add a front-facing face photo (stays on your device)<div class="up-preview"></div></div>
+            <div class="full"><button class="btn btn-dark btn-block">Request Consultation</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <span class="eyebrow reveal">Visiting Ooty?</span>
+        <h2 class="reveal reveal-d1">Need glasses fast? Tell us now.</h2>
+        <p class="lead reveal reveal-d2">One travelling customer reported receiving prescription glasses within about five hours. Turnaround depends on your prescription and lens — message us and we'll give you an honest estimate.</p>
+        <a class="btn btn-wa reveal" data-wa="Hello Opticare, I'm visiting Ooty and need glasses urgently."><span data-icon="whatsapp"></span> Ask for an estimate</a>
+      </div>
+      <div class="art-panel img-reveal" style="aspect-ratio:16/11" data-art="detail"><span class="ph-note">Workshop photograph — to be replaced</span></div>
+    </div>
+  </section>
+</main>
+<div id="chrome-bottom"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/frames.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Reviews – Opticare Optical House, Ooty | 4.9★ on Google</title>
+<meta name="description" content="Opticare Optical House in Ooty is rated 4.9 from 316 Google reviews. Customers mention the wide frame collection, helpful staff, quick repairs and fast prescription glasses.">
+<meta property="og:title" content="Customer Reviews – Opticare Optical House">
+<meta property="og:image" content="assets/img/og-image.svg">
+<meta name="theme-color" content="#FAF7F1">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/luxe.css">
+</head>
+<body data-page="reviews">
+<div id="chrome-top"></div>
+<main id="main">
+  <section class="page-hero" data-hero="portrait">
+    <span class="ghost-word">4.9 ★</span>
+    <div class="container split">
+      <div>
+        <div class="crumbs"><a href="index.html">Home</a><span>/</span>Customer Reviews</div>
+        <span class="eyebrow">Customer Reviews</span>
+        <h1>Trusted by our customers.</h1>
+        <p class="lead">Real experiences and genuine service — here's what customers consistently say about Opticare on Google.</p>
+      </div>
+      <div class="rating-big"><strong>4.9</strong><div><div class="stars" style="font-size:24px">★★★★★</div><p class="muted" style="margin:6px 0 14px">Based on 316 Google reviews</p><a class="btn btn-dark btn-sm" id="gLink" target="_blank" rel="noopener">Read on Google ↗</a></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="sec-head"><div><span class="eyebrow reveal">Google review highlights</span><h2 class="reveal reveal-d1">What customers talk about</h2><p class="lead reveal reveal-d2">Themes summarised from public reviews on the store's Google listing.</p></div></div>
+      <div class="grid g3" id="themes"></div>
+    </div>
+  </section>
+
+  <section class="section bg-ivory2 hidden" id="realWrap">
+    <div class="container">
+      <div class="sec-head"><div><span class="eyebrow">Customer feedback</span><h2>In their words</h2></div></div>
+      <div class="grid g3" id="realGrid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="sec-head"><div><span class="eyebrow reveal">Customer photographs</span><h2 class="reveal reveal-d1">Our customers, in their new frames</h2><p class="lead reveal reveal-d2">Shared with permission. Want to be featured? Tag us or send your photo on WhatsApp.</p></div></div>
+      <div class="grid g4 keep2" id="photoGrid"></div>
+    </div>
+  </section>
+
+  <section class="section bg-beige">
+    <div class="container split" style="align-items:start">
+      <div>
+        <span class="eyebrow reveal">Share your experience</span>
+        <h2 class="reveal reveal-d1">Tell us how we did.</h2>
+        <p class="lead reveal reveal-d2">Your feedback helps us improve — and helps other people in Ooty find the right optical shop. The best way to support us is a Google review.</p>
+        <div class="btn-row reveal reveal-d3" style="margin-top:26px"><a class="btn btn-dark" id="gLink2" target="_blank" rel="noopener"><span data-icon="google"></span> Write a Google Review</a></div>
+      </div>
+      <form class="form-card reveal reveal-d2" id="fbForm" novalidate>
+        <div class="form-grid">
+          <div class="field full"><span>Your rating</span><div id="rate" style="display:flex;gap:4px;font-size:30px"></div></div>
+          <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+          <label class="field"><span>Town (optional)</span><input name="place" placeholder="e.g. Ooty"></label>
+          <label class="field full"><span>Your experience</span><textarea name="text" required></textarea></label>
+          <label class="check full"><input type="checkbox" name="consent" checked> I'm happy for Opticare to show this feedback on the website.</label>
+          <div class="full"><button class="btn btn-dark btn-block">Submit Feedback</button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<div id="chrome-bottom"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/frames.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#gLink").href = $("#gLink2").href = STORE.googleReviewUrl;
+    $("#rate").innerHTML = [1, 2, 3, 4, 5].map(r => `<button type="button" data-r="${r}" aria-label="${r} star${r > 1 ? "s" : ""}" style="background:none;border:0;color:var(--gold);font-size:30px;padding:0 2px">★</button>`).join("");
+  });
+</script>
+</body>
+</html>
