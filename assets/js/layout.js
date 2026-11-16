@@ -116,11 +116,13 @@ function submitEnquiry(type, data, { whatsapp = true } = {}) {
 function productCard(p, i = 0) {
   const cats = getCollections();
   const catName = (cats.find(c => c.id === p.cats[0]) || {}).short || "";
+  const tryHref = `try-on.html?frame=${encodeURIComponent(p.id)}`;
+  const waHref = waLink(`Hello ${STORE.shortName}, is the "${p.name}" (${p.id}, ${p.colorName}) available?`);
   return `<article class="product-card reveal reveal-d${i % 4}">
     <div class="p-media" data-cursor="View">${p.badge ? `<span class="p-badge ${/premium|titanium/i.test(p.badge) ? "gold" : ""}">${esc(p.badge)}</span>` : ""}${productMedia(p, "front", { ratio: 1 })}
       <div class="p-quick">
-        <a href="try-on.html?frame=${encodeURIComponent(p.id)}" aria-label="Try ${esc(p.name)} on with camera">${ICONS.camera} Try on</a>
-        <a class="wa" href="${waLink(`Hello ${STORE.shortName}, is the "${p.name}" (${p.id}, ${p.colorName}) available?`)}" target="_blank" rel="noopener" aria-label="Enquire about ${esc(p.name)} on WhatsApp">${ICONS.whatsapp} Enquire</a>
+        <a href="${tryHref}" aria-label="Try ${esc(p.name)} on with camera">${ICONS.camera} Try on</a>
+        <a class="wa" href="${waHref}" target="_blank" rel="noopener" aria-label="Enquire about ${esc(p.name)} on WhatsApp">${ICONS.whatsapp} Enquire</a>
       </div>
     </div>
     <div class="p-body">
@@ -129,6 +131,10 @@ function productCard(p, i = 0) {
       <div class="p-foot">
         <div class="p-meta"><span class="swatch" style="background:${esc(p.color)}"></span>${esc(p.colorName)}</div>
         <div class="p-price">${rupee(p.price)}</div>
+      </div>
+      <div class="p-cta">
+        <a href="${tryHref}" aria-label="Try ${esc(p.name)} on with camera">${ICONS.camera}<span>Try on</span></a>
+        <a class="wa" href="${waHref}" target="_blank" rel="noopener" aria-label="Enquire about ${esc(p.name)} on WhatsApp">${ICONS.whatsapp}<span>Enquire</span></a>
       </div>
     </div>
     <a class="p-link" href="product.html?id=${encodeURIComponent(p.id)}" aria-label="View ${esc(p.name)}"></a>

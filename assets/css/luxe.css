@@ -124,7 +124,17 @@ body.has-hero .site-header:not(.scrolled) .btn-dark { background: #fff; color: v
 .p-swatches { display: flex; gap: 6px; margin-top: 2px; }
 .product-card .p-foot { padding-top: 10px; }
 .product-card .p-actions { display: none; }
-@media (hover: none) { .p-quick { transform: none; position: static; padding: 10px 0 0; } .product-card .p-media { overflow: hidden; } .p-quick a { background: var(--beige); } }
+/* Card actions below the photo (touch screens + small screens) — never over the frame */
+.p-cta { display: none; position: relative; z-index: 2; gap: 8px; margin-top: 14px; }
+.p-cta a { flex: 1; min-width: 0; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 8px; border: 1px solid var(--line); background: #fff; color: var(--charcoal); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; white-space: nowrap; transition: background .3s, color .3s, border-color .3s; }
+.p-cta a.wa { background: var(--wa); border-color: var(--wa); color: #0B3B1E; }
+.p-cta a:active { background: var(--charcoal); color: #fff; }
+.p-cta svg { width: 15px; height: 15px; flex: none; }
+@media (hover: none), (max-width: 900px) {
+  .p-quick { display: none; }
+  .p-cta { display: flex; }
+  .product-card:hover .p-media img.p-photo, .product-card:hover .p-media svg { transform: none; }
+}
 
 /* ---------- Rail (carousel) ---------- */
 .rail-wrap { position: relative; }
@@ -353,9 +363,28 @@ body.has-hero .site-header:not(.scrolled) .btn-dark { background: #fff; color: v
   .bento .b-women { order: 1; } .bento .b-men { order: 2; } .bento .b-sun { order: 3; } .bento .b-kids { order: 4; } .bento .b-rx { order: 5; grid-column: auto !important; grid-row: auto !important; } .bento .b-premium { order: 6; }
 }
 @media (max-width: 640px) {
-  .p-quick { gap: 6px; left: 8px; right: 8px; bottom: 8px; }
-  .p-quick a { padding: 10px 6px; font-size: 9.5px; letter-spacing: .1em; white-space: nowrap; }
-  .product-card .p-name { font-size: 22px; }
+  /* Two frames per row on phones */
+  #grid.g3, #related.g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+  .product-card .p-body { padding: 12px 0 4px; }
+  .product-card .p-cat { font-size: 9px; letter-spacing: .14em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .product-card .p-name { font-size: 19px; margin: 3px 0 4px; }
+  .product-card .p-foot { flex-direction: column; align-items: flex-start; gap: 4px; padding-top: 6px; }
+  .product-card .p-meta { font-size: 12px; }
+  .product-card .p-price { font-size: 14px; }
+  .p-badge { top: 8px; left: 8px; font-size: 8.5px; padding: 4px 7px; letter-spacing: .12em; }
+  .shop-top { gap: 10px; }
+  .shop-top .search-box { width: 100%; }
+  .shop-top > div { width: 100%; }
+  .shop-top #count { white-space: nowrap; font-size: 13px !important; }
+  .shop-top select { margin-left: auto; min-width: 0; max-width: 46%; padding: 10px; font-size: 13px; }
+  .p-cta { flex-direction: column; gap: 6px; margin-top: 10px; }
+  .p-cta a { min-height: 38px; padding: 8px 6px; font-size: 10px; letter-spacing: .1em; }
+  .face-cards .p-cta { display: flex; }
+  /* Smaller floating buttons so they cover less content */
+  .fab { width: 50px; height: 50px; }
+  .fab svg { width: 23px; height: 23px; }
+  .fab-tryon { width: 42px; height: 42px; }
+  .fab-wrap { gap: 10px; }
 }
 
 /* ---------- Try-on: models + camera errors ---------- */
